@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/context
+            http://www.springframework.org/schema/context/spring-context.xsd
+            http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+
+
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="ignoreUnresolvablePlaceholders" value="true"/>
+        <property name="locations">
+            <list>
+                <!--<value>classpath:application_assist.properties</value>-->
+            </list>
+        </property>
+    </bean>
+
+
+    <context:component-scan base-package="com.kr.caption">
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Component"/>
+    </context:component-scan>
+
+    <!--<mvc:annotation-driven validator="validator">-->
+        <!--<mvc:argument-resolvers>-->
+            <!--<bean class="com.kr.media.util.spring.method.annotation.KrFormMethodArgumentResolver"/>-->
+            <!--<bean class="com.kr.media.util.spring.method.annotation.KrJsonMethodArgumentResolver">-->
+                <!--<constructor-arg ref="jacksonMessageConverter" index="0"/>-->
+            <!--</bean>-->
+        <!--</mvc:argument-resolvers>-->
+
+        <!--<mvc:message-converters register-defaults="false">-->
+            <!--<ref bean="jacksonMessageConverter"/>-->
+        <!--</mvc:message-converters>-->
+    <!--</mvc:annotation-driven>-->
+
+    <!--<mvc:default-servlet-handler/>-->
+
+    <!--&lt;!&ndash; jackson &ndash;&gt;-->
+    <!--<bean id="jacksonMessageConverter"-->
+          <!--class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">-->
+        <!--<property name="objectMapper" ref="objectMapper"/>-->
+    <!--</bean>-->
+    <!--<bean id="objectMapper" class="com.kr.media.util.common.JacksonUtil" factory-method="getObjectMapper"/>-->
+
+    <!--&lt;!&ndash; 统一验证 &ndash;&gt;-->
+    <!--<bean id="validator"-->
+          <!--class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">-->
+        <!--<property name="providerClass" value="org.hibernate.validator.HibernateValidator"/>-->
+        <!--<property name="validationMessageSource" ref="messageSource"/>-->
+    <!--</bean>-->
+
+    <!--&lt;!&ndash; 统一异常处理 &ndash;&gt;-->
+    <!--<bean id="exceptionResolver" class="com.kr.media.framework.web.BaseExceptionResolver">-->
+        <!--<property name="order" value="0"/>-->
+    <!--</bean>-->
+
+    <!--&lt;!&ndash; 消息国际化 &ndash;&gt;-->
+    <!--<bean id="messageSource"-->
+          <!--class="com.kr.media.util.spring.i18.I18MessageSource">-->
+        <!--<property name="basenames">-->
+            <!--<list>-->
+                <!--<value>classpath*:com/kr/media/framework/web/BaseController</value>-->
+                <!--<value>classpath*:com/kr/media/re/admin/**/*Controller</value>-->
+            <!--</list>-->
+        <!--</property>-->
+        <!--<property name="useCodeAsDefaultMessage" value="true"/>-->
+    <!--</bean>-->
+
+    <!--<bean id="localeResolver" class="org.springframework.web.servlet.i18n.FixedLocaleResolver">-->
+        <!--<property name="defaultLocale" value="zh_CN"/>-->
+    <!--</bean>-->
+
+</beans>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd" -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:task="http://www.springframework.org/schema/task"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+			http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd">
+
+
+	<!--<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">-->
+		<!--<property name="ignoreUnresolvablePlaceholders" value="true"/>-->
+        <!--<property name="locations">  -->
+            <!--<list>  -->
+            	<!--<value>classpath:application_db.properties</value>  -->
+                <!--<value>classpath:application_filter.properties</value>-->
+                <!--<value>classpath:application_http.properties</value>-->
+                <!--<value>classpath:application_redis.properties</value>-->
+                <!--<value>classpath:application_assist.properties</value>-->
+                <!--<value>classpath:application_es.properties</value>-->
+            <!--</list>-->
+        <!--</property>   -->
+    <!--</bean>-->
+
+	<!--&lt;!&ndash; 第三方资源：如db，redis，mq等 &ndash;&gt;-->
+	<!--<import resource="application_db.xml"/>-->
+	<!--<import resource="application_redis.xml"/>-->
+	<!--&lt;!&ndash; 内部资源：如dao，service，filter，http等 &ndash;&gt;-->
+	<!--<import resource="application_filter.xml"/>-->
+	<!--<import resource="classpath*:application_service.xml"/>-->
+	<!--<import resource="application_http.xml"/>-->
+    <!--<import resource="application_carbon.xml"/>-->
+
+</beans>
