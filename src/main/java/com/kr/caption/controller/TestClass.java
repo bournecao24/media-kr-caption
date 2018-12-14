@@ -12,7 +12,7 @@ public class TestClass {
     @RequestMapping("test")
     @ResponseBody
     public String test(){
-        System.out.println("hello word ");
+        System.out.println("hello word hello world");
         return "success";
     }
 }
