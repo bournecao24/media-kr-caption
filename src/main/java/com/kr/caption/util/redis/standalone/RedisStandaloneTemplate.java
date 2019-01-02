@@ -33,7 +33,7 @@ public class RedisStandaloneTemplate implements RedisTemplate {
         Jedis jedis = null;
         try {
             jedis = builder.builder().getResource();
-            return ((RedisStandaloneCallback<T>) callback).doCallback(jedis);
+            return ((RedisStandaloneCallback<T>) callback).doCallback(jedis);  //据说这里用到了策略模式，策略模式已经忘了
         } catch (Exception e) {
             logger.error("RedisStandaloneTemplate execute error:", e);
             e.printStackTrace();
