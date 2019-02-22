@@ -39,4 +39,8 @@ public class NormalOperation {
                 .filter(entry -> entry.getValue().size() > 1)
                 .map(Map.Entry::getKey).map(Long::valueOf).collect(Collectors.toList());
     }
+
+
+
+
 }
