@@ -3,11 +3,13 @@ package com.kr.caption.java8.movingparam;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.function.Consumer;
+import java.util.function.Predicate;
 
 public class FilterSomething {
 
 
-    //泛型
+    //泛型  函数式接口：只有一个抽象方法，所以说肯定就知道了 你要实现的是哪个
     public static <T> List<T> filter(List<T> list, Predicate<T> predicate) {
         List<T> result = new ArrayList<>();
         for (T e : list) {
@@ -43,5 +45,6 @@ public class FilterSomething {
         });
 
         Thread thread1 = new Thread(() -> System.out.println("Hello world"));
+
     }
 }
