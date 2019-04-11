@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd" -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+			http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <bean id="train" class="com.kr.caption.spring.Train">
+        <constructor-arg ref="water"/>
+    </bean>
+    <bean id="water" class="com.kr.caption.spring.Water"/>
+
+
+    <aop:config >
+        <aop:aspect ref="water">
+            <aop:pointcut id="begin" expression="execution(* *.beginOnQuest(..))"/>
+            <aop:before pointcut-ref="begin" method="waterSomthing"/>
+            <aop:after pointcut-ref="begin" method="waterSomthing"/>
+        </aop:aspect>
+    </aop:config>
+</beans>
