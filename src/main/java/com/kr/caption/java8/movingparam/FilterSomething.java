@@ -1,9 +1,11 @@
 package com.kr.caption.java8.movingparam;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.function.Consumer;
+import java.util.function.Function;
 import java.util.function.Predicate;
 
 public class FilterSomething {
@@ -21,11 +23,41 @@ public class FilterSomething {
         return result;
     }
 
+
+    public static <T> void forEach(List<T> list, Consumer<T> c){
+        for(T single:list){
+            c.accept(single);
+        }
+    }
+
+    public static <T, R> List<R> map(List<T> list, Function<T,R> function){
+        List<R> result = new ArrayList<>();
+        for(T single:list){
+            result.add(function.apply(single));
+        }
+        return result;
+    }
+
+
+
     public static void main(String[] args) {
+
         List<Apple> list = new ArrayList<>();
+
+        List<String> strList = new ArrayList<>();
+
 
         //行为参数化 ？？ 类似于策略模式 封装一个行为（一段代码），并通过传递和使用创建的行为将方法的行为参数化。
         List<Apple> apples = filter(list, (Apple apple) -> "red".equals(apple.getColor()));
+
+        List<String> stringList = filter(strList, String::isEmpty);
+
+        forEach(Arrays.asList(1,2,3,4), System.out::println);
+
+        List<Integer> mapResult = map(Arrays.asList("Lambda", "very", "amazing"), String::length);
+
+        System.out.println(mapResult);
+
 
         list.sort(new Comparator<Apple>() {
             @Override

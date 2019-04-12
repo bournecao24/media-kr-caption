@@ -1,11 +1,31 @@
 package com.kr.caption.java8.movingparam;
 
-import org.apache.ibatis.annotations.Param;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.function.Consumer;
+import java.util.function.IntPredicate;
 import java.util.function.Predicate;
 
 public class lambda {
+
+
+    //资源处理，就是打开一个资源，做些处理，再关闭，
+    public static String processFile() throws IOException {
+
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader("data.txt"))) {
+            return bufferedReader.readLine();  //只能读第一行
+        }
+
+    }
+
+    public static void updateProcessFile(){
+
+//       String result =  processFile((BufferedReader br) -> br.readLine() + br.readLine());
+
+    }
+
 
     public static void main(String[] args) {
 
