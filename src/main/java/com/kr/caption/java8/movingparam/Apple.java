@@ -6,8 +6,10 @@ import java.util.stream.Collectors;
 public class Apple {
 
     private Long id;
+
     private Long weight;
     private String color;
+    private String name;
 
     public Apple(Long weight) {
         this.weight = weight;
@@ -45,6 +47,13 @@ public class Apple {
         this.color = color;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public static void main(String[] args) {
 
