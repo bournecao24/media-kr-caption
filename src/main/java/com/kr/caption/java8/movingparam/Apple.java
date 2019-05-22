@@ -7,9 +7,19 @@ public class Apple {
 
     private Long id;
 
+    private Integer type;
     private Long weight;
     private String color;
     private String name;
+    private boolean hasGrow;
+
+    public boolean isHasGrow() {
+        return hasGrow;
+    }
+
+    public void setHasGrow(boolean hasGrow) {
+        this.hasGrow = hasGrow;
+    }
 
     public Apple(Long weight) {
         this.weight = weight;
@@ -53,6 +63,14 @@ public class Apple {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Integer getType() {
+        return type;
+    }
+
+    public void setType(Integer type) {
+        this.type = type;
     }
 
     public static void main(String[] args) {
