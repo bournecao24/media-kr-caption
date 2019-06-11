@@ -85,6 +85,7 @@ public class StreamCollectData {
         //分区函数 ,只分为两组
         Map<Boolean, List<Apple>> collect = list.stream().collect(partitioningBy(Apple::isHasGrow));
 
+        //可以传递第二个收集器
         Map<Boolean, Map<Integer, List<Apple>>> collect1 = list.stream().collect(partitioningBy(Apple::isHasGrow, groupingBy(Apple::getType)));
 
         //熟的和没熟的中最重的
@@ -94,9 +95,20 @@ public class StreamCollectData {
                                 collectingAndThen(maxBy(Comparator.comparingLong(Apple::getWeight)),
                                         Optional::get)));
 
+        //多级分区
+        Map<Boolean, Map<Boolean, List<Apple>>> mapMap = list.stream().collect(partitioningBy(Apple::isHasGrow, partitioningBy(Apple::isHasSweet)));
+
+        Map<Boolean, Long> mapNum = list.stream().collect(partitioningBy(Apple::isHasGrow, counting()));
+
+        //把结果收集到指定集合
+        list.stream().collect(Collectors.toCollection(ArrayList::new));
+
 
     }
 
+//    public class ToListCollector<T> implements Collector<T, List<T>, List<T>>{
+//
+//    }
 
     private void aboutFlatMap() {
 
@@ -116,8 +128,36 @@ public class StreamCollectData {
         int[] numbers = {2, 3, 5, 7, 11, 13};
         int sum = Arrays.stream(numbers).sum();
 
+    }
 
 
+    /**
+     * 是否是质数
+     * @param candidate
+     * @return
+     */
+    private boolean isPrime(int candidate) {
+        return IntStream.range(2, candidate).noneMatch(i -> candidate % i == 0);
+    }
+
+    /**
+     * 是否是质数优化：仅测试小于等于待测数平方根的因子
+     * Collectors类的静态工厂方法创建所有的收集器
+     *
+     * 质数：除了1和它本身，不能被任何自然数整除的数
+     * 先取被测试数的平方根，用 被测试数去整除从2到平方根的这些数。
+     * @param candidate
+     * @return
+     */
+    private static boolean isPrimeBetter(int candidate){
+        int sqrt = (int)Math.sqrt(candidate);
+        System.out.println(sqrt);
+        return IntStream.rangeClosed(2, sqrt).noneMatch(num -> candidate % num ==0);
+    }
+
+    public static void main(String[] args) {
+        int candidate = 36;
+        System.out.println(isPrimeBetter(candidate));
     }
 
 

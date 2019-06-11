@@ -12,6 +12,15 @@ public class Apple {
     private String color;
     private String name;
     private boolean hasGrow;
+    private boolean hasSweet;
+
+    public boolean isHasSweet() {
+        return hasSweet;
+    }
+
+    public void setHasSweet(boolean hasSweet) {
+        this.hasSweet = hasSweet;
+    }
 
     public boolean isHasGrow() {
         return hasGrow;
