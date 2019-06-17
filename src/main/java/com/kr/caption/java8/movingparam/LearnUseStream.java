@@ -21,6 +21,7 @@ public class LearnUseStream {
 
         List<Apple> red = appleList.stream()
                 .filter(apple -> apple.getColor().equals("red"))
+                .peek(System.out::println)
                 .distinct()
                 .limit(3).collect(Collectors.toList());
 
