@@ -1,4 +1,4 @@
-package com.kr.caption.java8.CollectorExample;
+package com.kr.caption.java8.collectorExample;
 
 import com.kr.caption.java8.movingparam.Apple;
 
