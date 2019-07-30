@@ -22,7 +22,6 @@ public class CDPlayerTest {
     public void cdShouldNotBeNull(){
         Assert.assertNotNull(cd);
         Assert.assertNull(cd);
-        System.out.println("能退回到上一个版本啊");
     }
 
 }
