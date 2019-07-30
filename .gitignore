@@ -12,3 +12,4 @@ submode
 .DS_Store
 .idea/
 *.jar
+*.xml
