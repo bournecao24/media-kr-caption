@@ -1,16 +1,18 @@
 package com.kr.caption.java8.time;
 
 import java.time.*;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeFormatterBuilder;
 import java.time.temporal.ChronoField;
 import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalAdjuster;
+import java.util.Locale;
+import java.util.TimeZone;
 
 import static java.time.temporal.TemporalAdjusters.*;
 
 
 public class TimeTry {
-
-
     private void LocateDateTest() {
 
         //LocalDate 不可变对象，只包含简单的日期，无时区
@@ -100,11 +102,88 @@ public class TimeTry {
 
     }
 
-    private void temporalAdjusterTest(){
+    private void temporalAdjusterTest() {
         LocalDate date1 = LocalDate.of(2014, 3, 18);
         LocalDate date2 = date1.with(nextOrSame(DayOfWeek.FRIDAY));
         date2.with(lastDayOfMonth());
         TemporalAdjuster adjuster = lastDayOfYear();
         date2.with(adjuster);
+    }
+
+
+    private void autoHotNews() {
+        //过去两个小时的毫秒数
+        LocalDateTime time = LocalDateTime.now().minus(2, ChronoUnit.DAYS);
+        ZonedDateTime zone = time.atZone(ZoneId.systemDefault());
+        long twoDaysMilli = zone.toInstant().toEpochMilli();
+    }
+
+
+    //所有的DateTimeFormatter实例都是线程安全的，可以以单例模式创建一个DateTimeFormatter
+    private void dataTimeFormatterTest() {
+
+        LocalDate date = LocalDate.of(2018, 3, 3);
+        String format = date.format(DateTimeFormatter.BASIC_ISO_DATE);
+        String format1 = date.format(DateTimeFormatter.ISO_LOCAL_DATE);
+        System.out.println(format + "++++" + format1);
+
+        //20180303++++2018-03-03
+
+        LocalDate parse = LocalDate.parse("20180318", DateTimeFormatter.BASIC_ISO_DATE);
+        LocalDate parse1 = LocalDate.parse("2018-09-23", DateTimeFormatter.ISO_LOCAL_DATE);
+
+
+        //支持自定义格式器的静态工厂方法
+//        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("MM/yyyy");
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM");
+        String format2 = date.format(dateTimeFormatter);
+
+        LocalDate parse2 = LocalDate.parse(format2, dateTimeFormatter);
+        System.out.println(format2);
+    }
+
+    //创建一个本地的化DateTimeFormatter
+    private void createLocalDateTimeFormatter() {
+
+        DateTimeFormatter italianFormatter =
+                DateTimeFormatter.ofPattern("d. MMMM yyyy", Locale.ITALIAN);
+        LocalDate date1 = LocalDate.of(2014, 3, 18);
+        String formattedDate = date1.format(italianFormatter); // 18. marzo 2014
+        LocalDate date2 = LocalDate.parse(formattedDate, italianFormatter);
+
+
+        //构造一个DateTimeFormatter
+        DateTimeFormatter italianFormatters = new DateTimeFormatterBuilder() .appendText(ChronoField.DAY_OF_MONTH)
+                .appendLiteral(". ")
+                .appendText(ChronoField.MONTH_OF_YEAR)
+                .appendLiteral(" ")
+                .appendText(ChronoField.YEAR)
+                .parseCaseInsensitive()
+                .toFormatter(Locale.ITALIAN);
+        String format = date1.format(italianFormatters);
+        System.out.println(format);
+
+    }
+
+
+    private void zoneDeal(){
+
+        ZoneId romeZone = ZoneId.of("Europe/Rome");
+
+        LocalDate localDate = LocalDate.of(2019, Month.MARCH, 18);
+        ZoneId zoneId = TimeZone.getDefault().toZoneId();
+
+        ZonedDateTime zonedDateTime = localDate.atStartOfDay(romeZone);
+
+
+    }
+
+
+    public static void main(String[] args) {
+
+        TimeTry timeTry = new TimeTry();
+        timeTry.createLocalDateTimeFormatter();
+
+
     }
 }

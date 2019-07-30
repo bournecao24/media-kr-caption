@@ -6,6 +6,19 @@
 			http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd">
 
 
+
+	<bean id="compactDisc" class="com.kr.caption.spring.orginal.BlankDisc">
+		<constructor-arg value="this is title"/>
+		<constructor-arg value="this is artist"/>
+	</bean>
+
+	<bean id="cdPlay" class="com.kr.caption.spring.orginal.CDPlayer">
+		<constructor-arg ref="compactDisc"/>
+	</bean>
+
+
+
+
 	<!--<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">-->
 		<!--<property name="ignoreUnresolvablePlaceholders" value="true"/>-->
         <!--<property name="locations">-->
