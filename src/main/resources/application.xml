@@ -10,6 +10,14 @@
 	<bean id="compactDisc" class="com.kr.caption.spring.orginal.BlankDisc">
 		<constructor-arg value="this is title"/>
 		<constructor-arg value="this is artist"/>
+		<!--<constructor-arg><null></null></constructor-arg>-->
+		<constructor-arg>
+			<list>
+				<value>this is value1</value>
+				<value>this is value2</value>
+				<value>this is value3</value>
+			</list>
+		</constructor-arg>
 	</bean>
 
 	<bean id="cdPlay" class="com.kr.caption.spring.orginal.CDPlayer">
@@ -17,7 +25,14 @@
 	</bean>
 
 
-
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="ignoreUnresolvablePlaceholders" value="true"/>
+        <property name="locations">
+            <list>
+                <value>classpath:application_redis.properties</value>
+            </list>
+        </property>
+    </bean>
 
 	<!--<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">-->
 		<!--<property name="ignoreUnresolvablePlaceholders" value="true"/>-->

@@ -6,17 +6,14 @@
 
   <groupId>media-kr-caption</groupId>
   <artifactId>media-kr-caption</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <version>1.0.0</version>
+  <name>media-kr-caption</name>
   <packaging>war</packaging>
-
-  <name>media-kr-caption Maven Webapp</name>
-  <!-- FIXME change it to the project's website -->
-  <url>http://www.example.com</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>1.7</maven.compiler.source>
-    <maven.compiler.target>1.7</maven.compiler.target>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
     <spring.version>5.0.0.RELEASE</spring.version>
     <mybatis.version>3.4.0</mybatis.version>
     <mybatis.spring.version>1.3.0</mybatis.spring.version>
@@ -32,8 +29,6 @@
       <version>${junit.version}</version>
       <scope>test</scope>
     </dependency>
-
-
 
     <!-- mybatis -->
     <dependency>
