@@ -6,6 +6,9 @@ import java.time.format.DateTimeFormatterBuilder;
 import java.time.temporal.ChronoField;
 import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalAdjuster;
+import java.time.temporal.TemporalAdjusters;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Locale;
 import java.util.TimeZone;
 
@@ -138,6 +141,24 @@ public class TimeTry {
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM");
         String format2 = date.format(dateTimeFormatter);
 
+
+        //自定义格式举例
+        String starTime = "2019-08-09";
+        LocalDate activityDate = LocalDate.parse(starTime);
+        DateTimeFormatter pattern = DateTimeFormatter.ofPattern("MM月dd日");
+        String activityFormat = activityDate.format(pattern);
+        System.out.println(activityFormat);
+
+
+
+        //格式化时间
+        String time ="2019-07-17T06:53:56.762Z";
+        LocalDate parseDate = LocalDate.parse(time);
+        DateTimeFormatter patternDate = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        String formatDate = parseDate.format(patternDate);
+        System.out.println(formatDate);
+
+
         LocalDate parse2 = LocalDate.parse(format2, dateTimeFormatter);
         System.out.println(format2);
     }
@@ -153,7 +174,7 @@ public class TimeTry {
 
 
         //构造一个DateTimeFormatter
-        DateTimeFormatter italianFormatters = new DateTimeFormatterBuilder() .appendText(ChronoField.DAY_OF_MONTH)
+        DateTimeFormatter italianFormatters = new DateTimeFormatterBuilder().appendText(ChronoField.DAY_OF_MONTH)
                 .appendLiteral(". ")
                 .appendText(ChronoField.MONTH_OF_YEAR)
                 .appendLiteral(" ")
@@ -166,7 +187,7 @@ public class TimeTry {
     }
 
 
-    private void zoneDeal(){
+    private void zoneDeal() {
 
         ZoneId romeZone = ZoneId.of("Europe/Rome");
 
@@ -186,4 +207,57 @@ public class TimeTry {
 
 
     }
+
+
+    //start 需求：得到本周自然周和本月自然月的开始时间和结束时间 以下两个方法为旧版本
+
+    private Date getWeekMinDateTime(LocalDateTime localDateTime) {
+
+        Instant instant = localDateTime.atZone(ZoneId.systemDefault()).toInstant();
+        Date date = Date.from(instant);
+
+        Calendar c = Calendar.getInstance();
+        c.setTime(date);
+        if (c.get(Calendar.DAY_OF_WEEK) == 1) {
+            c.add(Calendar.DAY_OF_MONTH, -1);
+        }
+        c.add(Calendar.DATE, c.getFirstDayOfWeek() - c.get(Calendar.DAY_OF_WEEK) + 1);
+        Date time = c.getTime();
+        return time;
+    }
+
+    private Date getWeekMaxDateTime(LocalDateTime localDateTime) {
+        Instant instant = localDateTime.atZone(ZoneId.systemDefault()).toInstant();
+        Date date = Date.from(instant);
+
+        Calendar c = Calendar.getInstance();
+        c.setTime(date);
+
+        // 如果是周日直接返回
+        if (c.get(Calendar.DAY_OF_WEEK) == 1) {
+            return date;
+        }
+        c.add(Calendar.DATE, 7 - c.get(Calendar.DAY_OF_WEEK) + 1);
+        Date macTime = c.getTime();
+        return macTime;
+    }
+
+    private void getWeekAndMonthTime(){
+
+        LocalDateTime nowTime = LocalDateTime.now();
+        LocalDate nowDate = nowTime.toLocalDate();
+
+        LocalDate monthFirstDay = LocalDate.of(nowTime.getYear(), nowTime.getMonth(), 1);
+        LocalDate monthLastDay = nowDate.with(TemporalAdjusters.lastDayOfMonth());
+
+        LocalDate weekFirstDay = nowTime.with(DayOfWeek.MONDAY).toLocalDate();
+        LocalDate weekLastDay = nowTime.with(DayOfWeek.SUNDAY).toLocalDate();
+
+
+    }
+
+    //需求结束
+
+
+
 }
