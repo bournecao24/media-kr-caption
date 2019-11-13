@@ -2,20 +2,36 @@
 <!--DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd" -->
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-			http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
-
-    <bean id="train" class="com.kr.caption.spring.Train">
-        <constructor-arg ref="water"/>
-    </bean>
-    <bean id="water" class="com.kr.caption.spring.Water"/>
+			http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
 
-    <aop:config >
-        <aop:aspect ref="water">
-            <aop:pointcut id="begin" expression="execution(* *.beginOnQuest(..))"/>
-            <aop:before pointcut-ref="begin" method="waterSomthing"/>
-            <aop:after pointcut-ref="begin" method="waterSomthing"/>
+    <context:component-scan base-package="com.kr.caption.spring.aspect"/>
+    <!--xml启动自动代理-->
+    <aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+
+
+
+    <bean id="audience " class="com.kr.caption.spring.aspect.AudienceV4"></bean>
+
+
+    <!--用xml来实现所有的注解实现的东西-->
+    <aop:config>
+        <aop:aspect ref="audience">
+            <aop:before pointcut="execution(**aspect.Perforence.perform(..))"
+                        method="silenceCellPhones"/>
+
+            <aop:before pointcut="execution(**aspect.Perforence.perform(..))"
+                        method="takeSeats"/>
+
+           <aop:after-returning pointcut="execution(**aspect.Perforence.perform(..))"
+                        method="applause"/>
+
+           <aop:after-throwing pointcut="execution(**aspect.Perforence.perform(..))"
+                        method="demandRefund"/>
         </aop:aspect>
     </aop:config>
+
+
 </beans>
