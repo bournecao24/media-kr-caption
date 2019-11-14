@@ -6,6 +6,8 @@ package com.kr.caption.designmode.strategy;
  */
 public abstract class Duck {
 
+    //两个实例变量，声明为具体的接口类型，这样每个实现类，
+    // 也就是鸭子都会动态的设置这些变量用来在运行的时候引用正确的飞行模式
     public FlyBehavior flyBehavior;
     public QuackBehavior quackBehavior;
 
