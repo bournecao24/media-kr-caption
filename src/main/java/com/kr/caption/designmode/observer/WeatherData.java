@@ -15,20 +15,20 @@ public class WeatherData implements Subject {
     }
 
     @Override
-    public void registerObserver(Observer observer) {  //注册观察者，直接放到集合中
+    public void registerObserver(Observer observer) { //注册观察者，直接放到集合中
         observers.add(observer);
 
     }
 
     @Override
-    public void removeObserver(Observer observer) {  //取消注册
+    public void removeObserver(Observer observer) { //取消注册
         if(observers.indexOf(observer) >0){
             observers.remove(observer);
         }
     }
 
     @Override
-    public void notifyObserver() {   //通知所有的观察者
+    public void notifyObserver() {   //因为所有的观察者都实现了update方法，所以通知所有的观察者
         if(observers != null && observers.size() >0){
             for(Observer observer:observers){
                 observer.update(temp, humidity, pressure);
@@ -41,7 +41,7 @@ public class WeatherData implements Subject {
         notifyObserver();
     }
 
-    public void setMeasurements(float temp, float humidity, float pressure){
+    public void setMeasurements(float temp, float humidity, float pressure){//获取观测数据
         this.temp=temp;
         this.humidity = humidity;
         this.pressure=pressure;
