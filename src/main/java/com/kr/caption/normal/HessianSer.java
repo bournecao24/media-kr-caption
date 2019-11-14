@@ -81,11 +81,16 @@ public class HessianSer {
 //            TestClass.setTestClassName("赵新国");
 //            TestClass.setDepartment("软件工程师");
         // 序列化
-        byte[] serialize = serialize(TestClass);
-        System.out.println(serialize);
+//        byte[] serialize = serialize(TestClass);
+//        System.out.println(serialize);
         // 反序列化
-        TestClass deserialize = deserialize(serialize);
-        System.out.println(deserialize.toString());
+//        TestClass deserialize = deserialize(serialize);
+//        System.out.println(deserialize.toString());
+
+
+        int index = 0;
+        System.out.println(index++);
+
 
     }
 
