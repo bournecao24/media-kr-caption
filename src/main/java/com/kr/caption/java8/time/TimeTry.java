@@ -153,7 +153,7 @@ public class TimeTry {
 
 
         //构造一个DateTimeFormatter
-        DateTimeFormatter italianFormatters = new DateTimeFormatterBuilder() .appendText(ChronoField.DAY_OF_MONTH)
+        DateTimeFormatter italianFormatters = new DateTimeFormatterBuilder().appendText(ChronoField.DAY_OF_MONTH)
                 .appendLiteral(". ")
                 .appendText(ChronoField.MONTH_OF_YEAR)
                 .appendLiteral(" ")
@@ -166,7 +166,7 @@ public class TimeTry {
     }
 
 
-    private void zoneDeal(){
+    private void zoneDeal() {
 
         ZoneId romeZone = ZoneId.of("Europe/Rome");
 
@@ -179,6 +179,9 @@ public class TimeTry {
         //将 long 类型时间转换为 LocalDate
         Long createTime = 1533746574312L;
         LocalDate dateTime = LocalDateTime.ofInstant(Instant.ofEpochMilli(createTime), ZoneId.systemDefault()).toLocalDate();
+
+        LocalDateTime dateTimeV = LocalDateTime.ofInstant(Instant.ofEpochMilli(createTime), ZoneId.systemDefault());
+        LocalDateTime before14DaysTime = LocalDate.now().minusDays(14).atStartOfDay(ZoneId.systemDefault()).toLocalDateTime();
 
 
     }
