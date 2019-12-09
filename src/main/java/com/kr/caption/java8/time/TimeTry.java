@@ -184,6 +184,12 @@ public class TimeTry {
         LocalDateTime before14DaysTime = LocalDate.now().minusDays(14).atStartOfDay(ZoneId.systemDefault()).toLocalDateTime();
 
 
+        //将locateDate 转为 时间戳
+        LocalDateTime time = LocalDateTime.now().minus(2, ChronoUnit.DAYS);
+        ZonedDateTime zone = time.atZone(ZoneId.systemDefault());
+        long twoDaysMilli = zone.toInstant().toEpochMilli();
+
+
     }
 
 
