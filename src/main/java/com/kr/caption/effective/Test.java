@@ -31,7 +31,8 @@ public interface Test {
 
 
     /**
-     * 编译此方法时，编译器会生成代码以创建一个将两个 T 实例传递给 toArray 的可变参数数组。 这段代码分配了 一个 Object[] 类型的数组，它是保证保存这些实例的最具体的类型，而不管在调用位置传递给 pickTwo 的对象是 什么类型。 toArray 方法只是简单地将这个数组返回给 pickTwo ，然后 pickTwo 将它返回给调用者，所以
+     * 编译此方法时，编译器会生成代码以创建一个将两个 T 实例传递给 toArray 的可变参数数组。 这段代码分配了 一个 Object[] 类型的数组，它是保证保存这些实例的最具体的类型，而不管在调用位置传递给 pickTwo 的对象是 什么类型。
+     * toArray 方法只是简单地将这个数组返回给 pickTwo ，然后 pickTwo 将它返回给调用者，所以
      * pickTwo 总是返回一个 Object[] 类型的数组。
      *
      * @param a
