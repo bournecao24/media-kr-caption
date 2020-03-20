@@ -16,4 +16,11 @@ public class Alert {
         this.alertHandlers.add(handler);
     }
 
+    public List<AlertHandler> getAlertHandlers() {
+        return alertHandlers;
+    }
+
+    public void setAlertHandlers(List<AlertHandler> alertHandlers) {
+        this.alertHandlers = alertHandlers;
+    }
 }
