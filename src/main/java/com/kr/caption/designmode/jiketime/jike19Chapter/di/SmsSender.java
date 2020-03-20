@@ -1,4 +1,4 @@
-package com.kr.caption.designmode.jiketime.jike19Chapter;
+package com.kr.caption.designmode.jiketime.jike19Chapter.di;
 
 public class SmsSender implements MessageSender {
 
