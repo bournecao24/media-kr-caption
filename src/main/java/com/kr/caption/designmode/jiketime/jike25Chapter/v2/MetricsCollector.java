@@ -17,7 +17,7 @@ public class MetricsCollector {
     }
 
 
-    void recordRequest(RequestInfo requestInfo) {
+    public void recordRequest(RequestInfo requestInfo) {
         if (requestInfo == null || StringUtils.isBlank(requestInfo.getApiName())) {
             return;
         }

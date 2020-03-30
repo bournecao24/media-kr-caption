@@ -1,8 +1,6 @@
 package com.kr.caption.designmode.jiketime.jike19Chapter.di;
 
-public class MessageSender {
+public interface MessageSender {
 
-    void send(String cellphone, String message){
-
-    }
+    void send(String cellphone, String message);
 }
