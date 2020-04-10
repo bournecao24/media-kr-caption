@@ -6,7 +6,7 @@ public class Notification {
 
     // 非依赖注入的方式
     public Notification() {
-        this.messageSender = new MessageSender();
+//        this.messageSender = new MessageSender();
     }
 
     // 依赖注入的方式  提高了代码的可扩展性，可以灵活的替换掉可依赖的类
