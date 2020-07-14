@@ -34,6 +34,7 @@ public class Demo2 {
     void sleep(int t, TimeUnit u) {
         try {
             u.sleep(t);
+
         } catch (InterruptedException e) {
         }
     }
