@@ -393,8 +393,9 @@ public class StringQuestion5 {
 
     /**
      * 在一个字符串(0<=字符串长度<=10000，全部由字母组成)中找到第一个只出现一次的字符,并返回它的位置, 如果没有则返回 -1
-     *
+     * <p>
      * 先在hash表中统计各字母出现次数，第二次扫描直接访问 hash 表获得次数。也可以用数组代替 hash 表
+     *
      * @param str
      * @return
      */
@@ -407,16 +408,16 @@ public class StringQuestion5 {
 
         Map<Character, Integer> map = new HashMap<>();
         for (int i = 0; i < len; i++) {
-            if (map.containsKey(str.charAt(i))){
+            if (map.containsKey(str.charAt(i))) {
                 int value = map.get(str.charAt(i));
-                map.put(str.charAt(i), value+1);
-            }else{
+                map.put(str.charAt(i), value + 1);
+            } else {
                 map.put(str.charAt(i), 1);
             }
         }
 
-        for(int i = 0; i < len; i++){
-            if(map.get(str.charAt(i)) == 1)
+        for (int i = 0; i < len; i++) {
+            if (map.get(str.charAt(i)) == 1)
                 return i;
         }
         return -1;
@@ -430,11 +431,11 @@ public class StringQuestion5 {
      * @return
      */
     public String reverseWords(String s) {
-        if(s.trim().length() == 0)
+        if (s.trim().length() == 0)
             return s.trim();
-        String [] temp = s.trim().split(" +");
+        String[] temp = s.trim().split(" +");
         String res = "";
-        for(int i = temp.length - 1; i > 0; i--){
+        for (int i = temp.length - 1; i > 0; i--) {
             res += temp[i] + " ";
         }
         return res + temp[0];
@@ -449,9 +450,40 @@ public class StringQuestion5 {
      * @return
      */
     public boolean rotateString(String A, String B) {
-        return A.length() == B.length() && (A+A).contains(B);
+        return A.length() == B.length() && (A + A).contains(B);
     }
 
+
+    /**
+     * 无重复字符的最长子串
+     *
+     * @param s
+     * @return
+     */
+    public int lengthOfLongestSubString(String s) {
+
+        Map<Character, Integer> map = new HashMap();
+        int len = s.length();
+
+        int last = 0;
+        int max = 0;
+
+        for (int i = 0; i < len; i++) {
+            char c = s.charAt(i);
+            if (map.containsKey(c)) {
+                last = 0;
+                i = map.get(c);
+                map.clear();
+                continue;
+            } else {
+                last++;
+            }
+            map.put(s.charAt(i), i);
+            max = Math.max(max, last);
+        }
+
+        return max;
+    }
 
 
 
