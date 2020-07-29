@@ -17,6 +17,8 @@
 	</bean>
 
 
+	<!--<bean id = "springContextUtil" class="com.kr.caption.spring.applicationtest.SpringContextUtil" lazy-init="false"></bean>-->
+
 
 
 	<!--<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">-->
