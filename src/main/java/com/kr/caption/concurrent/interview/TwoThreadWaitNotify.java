@@ -12,7 +12,6 @@ public class TwoThreadWaitNotify {
 
     private boolean flag = false;
 
-
     /**
      * 偶数线程
      */

@@ -16,8 +16,6 @@ import java.util.concurrent.TimeUnit;
  */
 public class ExecutorTest {
     private static final Logger logger = LogManager.getLogger(ExecutorTest.class);
-
-
     private static void executorService() throws Exception {
 
         BlockingQueue<Runnable> queue = new LinkedBlockingQueue<>(10);
@@ -54,6 +52,4 @@ public class ExecutorTest {
         }
         logger.info("main over");
     }
-
-
 }

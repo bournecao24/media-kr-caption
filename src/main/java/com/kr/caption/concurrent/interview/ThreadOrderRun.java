@@ -46,7 +46,6 @@ public class ThreadOrderRun {
         // 等待线程2 完成
         t2.join();
 
-
         System.out.println("完成");
     }
 
