@@ -34,6 +34,28 @@ public class LruTest {
     }
 
 
+    @Test
+    public void testV2(){
+
+        int target = 129;
+
+        int count = 0;
+        while (target > 10){
+            String aStr = target + "";
+            char[] chars = aStr.toCharArray();
+
+            for(char s:chars){
+                int numericValue = Character.getNumericValue(s);;
+                count += numericValue;
+            }
+
+            target = count;
+            count = 0;
+        }
+        System.out.println(target);
+
+    }
+
 
 
 

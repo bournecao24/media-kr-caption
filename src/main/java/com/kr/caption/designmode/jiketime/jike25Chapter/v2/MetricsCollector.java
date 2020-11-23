@@ -17,6 +17,11 @@ public class MetricsCollector {
     }
 
 
+    /**
+     * 用一个函数代替了最小原型中的两个函数
+     *
+     * @param requestInfo
+     */
     public void recordRequest(RequestInfo requestInfo) {
         if (requestInfo == null || StringUtils.isBlank(requestInfo.getApiName())) {
             return;

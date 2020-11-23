@@ -11,5 +11,4 @@ public abstract class TestCase {
     }
 
     public abstract Boolean doTest();
-
 }
