@@ -38,7 +38,7 @@ public class Transaction {
         this.sellerId = sellerId;
         this.productId = productId;
         this.orderId = orderId;
-        this.status = STATUS.TO_BE_EXECUTD;
+        this.status = STATUS.TO_BE_EXECUTED;
         this.createTimestamp = System.currentTimeMillis();
     }
 
