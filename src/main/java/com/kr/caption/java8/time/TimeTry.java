@@ -179,6 +179,7 @@ public class TimeTry {
         //将 long 类型时间转换为 LocalDate
         Long createTime = 1533746574312L;
         LocalDate dateTime = LocalDateTime.ofInstant(Instant.ofEpochMilli(createTime), ZoneId.systemDefault()).toLocalDate();
+        System.out.println(" lalalal "+dateTime.toString());
 
         LocalDateTime dateTimeV = LocalDateTime.ofInstant(Instant.ofEpochMilli(createTime), ZoneId.systemDefault());
         LocalDateTime before14DaysTime = LocalDate.now().minusDays(14).atStartOfDay(ZoneId.systemDefault()).toLocalDateTime();
@@ -197,6 +198,8 @@ public class TimeTry {
 
         TimeTry timeTry = new TimeTry();
         timeTry.createLocalDateTimeFormatter();
+
+        timeTry.zoneDeal();
 
 
     }

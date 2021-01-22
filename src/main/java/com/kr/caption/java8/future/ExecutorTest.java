@@ -10,7 +10,7 @@ public class ExecutorTest {
 
 
     private void test() {
-        //创建Executor- Service，通 过它你可以 向线程池提 交任务
+        //创建 Executor- Service，通 过它你可以 向线程池提 交任务
         ExecutorService executorService = Executors.newCachedThreadPool();
         Future<Double> future = executorService.submit(new Callable<Double>() {    //向Executor- Service提交一个 Callable对象
             @Override

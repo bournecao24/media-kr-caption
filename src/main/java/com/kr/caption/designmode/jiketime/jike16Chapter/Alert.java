@@ -14,7 +14,7 @@ public class Alert {
     }
 
     // 改动一:添加参数 timeoutCount
-    public void check(String api, long requestCount, long errorCount, long durationOfSeconds){
+    public void check(String api, long requestCount, long errorCount, long durationOfSeconds, long timeoutCount){
         long tps = requestCount / durationOfSeconds;
 
         if(tps > rule.getMatchRule(api)){
