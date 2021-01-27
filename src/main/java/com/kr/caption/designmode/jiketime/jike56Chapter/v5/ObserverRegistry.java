@@ -17,7 +17,7 @@
 //        for (Map.Entry<Class<?>, Collection<ObserverAction>> entry : observerActions){
 //        Class<?> eventType = entry.getKey();
 //        Collection<ObserverAction> eventActions = entry.getValue();
-//        CopyOnWriteArraySet<ObserverAction> registeredEventActions = registry.get
+//        CopyOnWriteArraySet<ObserverAction> registeredEventActions = registry.get();
 //            if (registeredEventActions == null) {
 //            registry.putIfAbsent(eventType, new CopyOnWriteArraySet<>());
 //            registeredEventActions = registry.get(eventType);
