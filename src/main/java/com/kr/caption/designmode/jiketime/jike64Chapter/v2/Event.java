@@ -1,4 +1,4 @@
-package com.kr.caption.designmode.jiketime.jike64Chapter.v3;
+package com.kr.caption.designmode.jiketime.jike64Chapter.v2;
 
 public enum Event {
 
