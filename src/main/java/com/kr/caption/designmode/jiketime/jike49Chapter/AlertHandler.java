@@ -1,7 +1,7 @@
-package com.kr.caption.designmode.jiketime.jike16Chapter.refactoring;
+package com.kr.caption.designmode.jiketime.jike49Chapter;
+
 
 import com.kr.caption.designmode.jiketime.jike16Chapter.AlertRule;
-import com.kr.caption.designmode.jiketime.jike16Chapter.Notification;
 
 public abstract class AlertHandler {
 

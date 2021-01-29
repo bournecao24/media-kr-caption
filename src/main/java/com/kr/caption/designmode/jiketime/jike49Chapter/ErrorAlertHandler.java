@@ -1,8 +1,7 @@
 package com.kr.caption.designmode.jiketime.jike49Chapter;
 
+
 import com.kr.caption.designmode.jiketime.jike16Chapter.AlertRule;
-import com.kr.caption.designmode.jiketime.jike16Chapter.refactoring.AlertHandler;
-import com.kr.caption.designmode.jiketime.jike16Chapter.refactoring.ApiStatInfo;
 
 /**
  * @Author: caozhenlong

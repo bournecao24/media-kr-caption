@@ -1,7 +1,7 @@
 package com.kr.caption.designmode.jiketime.jike16Chapter.refactoring;
 
 import com.kr.caption.designmode.jiketime.jike16Chapter.AlertRule;
-import com.kr.caption.designmode.jiketime.jike49Chapter.Notification;
+import com.kr.caption.designmode.jiketime.jike16Chapter.Notification;
 
 public class ErrorAlertHandler extends AlertHandler {
 
