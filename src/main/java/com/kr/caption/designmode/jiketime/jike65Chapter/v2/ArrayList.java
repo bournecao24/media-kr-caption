@@ -7,6 +7,8 @@ package com.kr.caption.designmode.jiketime.jike65Chapter.v2;
  */
 public class ArrayList<E> implements List<E>{
 
+    public int modCount;
+
     public ArrayList() {
     }
 
