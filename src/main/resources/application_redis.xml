@@ -5,16 +5,16 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
 			http://www.springframework.org/schema/beans/spring-beans.xsd">
     <!-- 基础redis -->
-    <bean id="redisTemplate" class="com.kr.caption.util.redis.standalone.RedisStandaloneTemplate">
-        <property name="redisBuilder" ref="redisStandaloneBuilder"/>
-    </bean>
+    <!--<bean id="redisTemplate" class="com.kr.caption.util.redis.standalone.RedisStandaloneTemplate">-->
+        <!--<property name="redisBuilder" ref="redisStandaloneBuilder"/>-->
+    <!--</bean>-->
 
-    <bean id="redisStandaloneBuilder" class="com.kr.caption.util.redis.standalone.RedisStandaloneBuilder"
-          init-method="builder">
-        <property name="host" value="${redis.host}"/>
-        <property name="password" value="${redis.password}"/>
-        <property name="port" value="${redis.port}"/>
-        <property name="database" value="${redis.database}"/>
-    </bean>
+    <!--<bean id="redisStandaloneBuilder" class="com.kr.caption.util.redis.standalone.RedisStandaloneBuilder"-->
+          <!--init-method="builder">-->
+        <!--<property name="host" value="${redis.host}"/>-->
+        <!--<property name="password" value="${redis.password}"/>-->
+        <!--<property name="port" value="${redis.port}"/>-->
+        <!--<property name="database" value="${redis.database}"/>-->
+    <!--</bean>-->
 
 </beans>

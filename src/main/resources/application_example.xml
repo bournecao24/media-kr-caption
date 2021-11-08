@@ -7,9 +7,9 @@
 			http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
 
-    <context:component-scan base-package="com.kr.caption.spring.aspect"/>
-    <!--xml启动自动代理-->
-    <aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+    <!--<context:component-scan base-package="com.kr.caption.spring.aspect"/>-->
+    <!--&lt;!&ndash;xml启动自动代理&ndash;&gt;-->
+    <!--<aop:aspectj-autoproxy></aop:aspectj-autoproxy>-->
 
 
 
@@ -17,21 +17,21 @@
 
 
     <!--用xml来实现所有的注解实现的东西-->
-    <aop:config>
-        <aop:aspect ref="audience">
-            <aop:before pointcut="execution(**aspect.Perforence.perform(..))"
-                        method="silenceCellPhones"/>
+    <!--<aop:config>-->
+        <!--<aop:aspect ref="audience">-->
+            <!--<aop:before pointcut="execution(**aspect.Perforence.perform(..))"-->
+                        <!--method="silenceCellPhones"/>-->
 
-            <aop:before pointcut="execution(**aspect.Perforence.perform(..))"
-                        method="takeSeats"/>
+            <!--<aop:before pointcut="execution(**aspect.Perforence.perform(..))"-->
+                        <!--method="takeSeats"/>-->
 
-           <aop:after-returning pointcut="execution(**aspect.Perforence.perform(..))"
-                        method="applause"/>
+           <!--<aop:after-returning pointcut="execution(**aspect.Perforence.perform(..))"-->
+                        <!--method="applause"/>-->
 
-           <aop:after-throwing pointcut="execution(**aspect.Perforence.perform(..))"
-                        method="demandRefund"/>
-        </aop:aspect>
-    </aop:config>
+           <!--<aop:after-throwing pointcut="execution(**aspect.Perforence.perform(..))"-->
+                        <!--method="demandRefund"/>-->
+        <!--</aop:aspect>-->
+    <!--</aop:config>-->
 
 
 </beans>
